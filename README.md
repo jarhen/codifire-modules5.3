@@ -2,8 +2,8 @@
 
 | **Laravel**  |  **codifire-modules** |
 |---|---|
-| 5.4  | ^1.0  |
-| 5.5  | ^2.0  |
+| 5.3  | ^1.0  |
+| 5.6  | ^2.0  |
 
 `codifire/codifire-modules` is a Laravel package which created to manage your large Laravel app using modules. Module is like a Laravel package, it has some views, controllers or models. This package is supported and tested in Laravel 5.
 
