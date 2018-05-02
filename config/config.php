@@ -24,7 +24,7 @@ return [
 
     'stubs' => [
         'enabled' => false,
-        'path' => base_path() . '/vendor/jarhen/codifire-modules/src/Commands/stubs',
+        'path' => base_path() . '/vendor/jarhen/codifire-modules5.3/src/Commands/stubs',
         'files' => [
             'start' => 'start.php',
             'routes' => 'Http/routes.php',
@@ -159,12 +159,12 @@ return [
     */
     'cache' => [
         'enabled' => false,
-        'key' => 'codifire-modules',
+        'key' => 'codifire-modules5.3',
         'lifetime' => 60,
     ],
     /*
     |--------------------------------------------------------------------------
-    | Choose what codifire-modules will register as custom namespaces.
+    | Choose what codifire-modules5.3 will register as custom namespaces.
     | Setting one to false will require you to register that part
     | in your own Service Provider class.
     |--------------------------------------------------------------------------

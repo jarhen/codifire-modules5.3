@@ -1,11 +1,11 @@
-# codifire-modules
+# codifire-modules5.3
 
-| **Laravel**  |  **codifire-modules** |
+| **Laravel**  |  **codifire-modules5.3** |
 |---|---|
 | 5.3  | ^1.0  |
 | 5.6  | ^2.0  |
 
-`codifire/codifire-modules` is a Laravel package which created to manage your large Laravel app using modules. Module is like a Laravel package, it has some views, controllers or models. This package is supported and tested in Laravel 5.
+`codifire/codifire-modules5.3` is a Laravel package which created to manage your large Laravel app using modules. Module is like a Laravel package, it has some views, controllers or models. This package is supported and tested in Laravel 5.
 
 This package is a re-published, re-organised and maintained version of [pingpong/modules](https://github.com/pingpong-labs/modules), which isn't maintained anymore. This package is used in [AsgardCMS](https://asgardcms.com/).
 
@@ -14,7 +14,7 @@ This package is a re-published, re-organised and maintained version of [pingpong
 To install through Composer, by run the following command:
 
 ``` bash
-composer require jarhen/codifire-modules
+composer require jarhen/codifire-modules5.3
 ```
 
 The package will automatically register a service provider and alias.
