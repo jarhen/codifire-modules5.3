@@ -24,7 +24,7 @@ class DumpCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function fire()
     {
         $this->info('Generating optimized autoload modules.');
 
@@ -55,8 +55,8 @@ class DumpCommand extends Command
      */
     protected function getArguments()
     {
-        return [
-            ['module', InputArgument::OPTIONAL, 'Module name.'],
-        ];
+        return array(
+            array('module', InputArgument::OPTIONAL, 'Module name.'),
+        );
     }
 }

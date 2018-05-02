@@ -150,10 +150,10 @@ class SchemaParser implements Arrayable
             if (in_array($column, $this->relationshipKeys)) {
                 $results .= $this->addRelationColumn($key, $field, $column);
             } else {
-              $results .= $this->{"{$type}Column"}($key, $field, $column);
+                $results .= $this->{"{$type}Column"}($key, $field, $column);
             }
         }
-	
+
         return $results . ';' . PHP_EOL;
     }
 
@@ -186,27 +186,12 @@ class SchemaParser implements Arrayable
      */
     protected function addColumn($key, $field, $column)
     {
-		if($field == 'enum' || $field == 'decimal' || $field == 'float' || $field == 'double' || $field == 'string' || $field =='char')
-			{
-					$str =  str_after($column, '|');
-					$size = str_replace_first('|',',',$str);
-					$column_name	  =	str_before($column, '|');  
-					$column =  "('" . $column_name . "',".$size.")";
-			}
-			else
-			{
-				$column	  =	 "('" . $column . "')";
-			}
-
-					
-		
-   
-	if ($this->hasCustomAttribute($column)) {
+        if ($this->hasCustomAttribute($column)) {
             return '->' . $field;
         }
 
         if ($key == 0) {
-            return '->' . $field .$column;
+            return '->' . $field . "('" . $column . "')";
         }
 
         if (str_contains($field, '(')) {

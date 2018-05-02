@@ -5,7 +5,6 @@ namespace Jarhen\Modules\Migrations;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Collection;
 use Jarhen\Modules\Module;
-use Jarhen\Modules\Support\Config\GenerateConfigReader;
 
 class Migrator
 {
@@ -74,8 +73,7 @@ class Migrator
     {
         $config = $this->module->get('migration');
 
-        $migrationPath = GenerateConfigReader::read('migration');
-        $path = (is_array($config) && array_key_exists('path', $config)) ? $config['path'] : $migrationPath->getPath();
+        $path = (is_array($config) && array_key_exists('path', $config)) ? $config['path'] : config('modules.paths.generator.migration');
 
         return $this->module->getExtraPath($path);
     }
@@ -94,7 +92,7 @@ class Migrator
         // extension and take the basename of the file which is all we need when
         // finding the migrations that haven't been run against the databases.
         if ($files === false) {
-            return [];
+            return array();
         }
 
         $files = array_map(function ($file) {

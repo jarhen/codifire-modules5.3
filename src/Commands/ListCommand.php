@@ -24,7 +24,7 @@ class ListCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function fire()
     {
         $this->table(['Name', 'Status', 'Order', 'Path'], $this->getRows());
     }
@@ -78,9 +78,9 @@ class ListCommand extends Command
      */
     protected function getOptions()
     {
-        return [
-            ['only', null, InputOption::VALUE_OPTIONAL, 'Types of modules will be displayed.', null],
-            ['direction', 'd', InputOption::VALUE_OPTIONAL, 'The direction of ordering.', 'asc'],
-        ];
+        return array(
+            array('only', null, InputOption::VALUE_OPTIONAL, 'Types of modules will be displayed.', null),
+            array('direction', 'd', InputOption::VALUE_OPTIONAL, 'The direction of ordering.', 'asc'),
+        );
     }
 }

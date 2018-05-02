@@ -2,8 +2,6 @@
 
 namespace Jarhen\Modules\Publishing;
 
-use Jarhen\Modules\Support\Config\GenerateConfigReader;
-
 class LangPublisher extends Publisher
 {
     /**
@@ -33,7 +31,7 @@ class LangPublisher extends Publisher
     public function getSourcePath()
     {
         return $this->getModule()->getExtraPath(
-            GenerateConfigReader::read('lang')->getPath()
+            $this->repository->config('paths.generator.lang')
         );
     }
 }

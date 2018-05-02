@@ -2,8 +2,6 @@
 
 namespace Jarhen\Modules\Publishing;
 
-use Jarhen\Modules\Support\Config\GenerateConfigReader;
-
 class AssetPublisher extends Publisher
 {
     /**
@@ -31,7 +29,7 @@ class AssetPublisher extends Publisher
     public function getSourcePath()
     {
         return $this->getModule()->getExtraPath(
-            GenerateConfigReader::read('assets')->getPath()
+            $this->repository->config('paths.generator.assets')
         );
     }
 }

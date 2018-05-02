@@ -4,7 +4,7 @@ namespace Jarhen\Modules\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Jarhen\Modules\Contracts\RepositoryInterface;
-use Jarhen\Modules\Laravel\Repository;
+use Jarhen\Modules\Repository;
 
 class ContractsServiceProvider extends ServiceProvider
 {

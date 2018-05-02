@@ -6,7 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class $CLASS$ extends Model
 {
-    protected $primaryKey = '$ID$';
-	protected $fillable = $FILLABLE$;
-
+    protected $fillable = $FILLABLE$;
 }

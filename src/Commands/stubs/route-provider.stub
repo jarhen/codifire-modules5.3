@@ -1,11 +1,11 @@
 <?php
 
-namespace $NAMESPACE$;
+namespace $MODULE_NAMESPACE$\$MODULE$\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-class $CLASS$ extends ServiceProvider
+class $NAME$ extends ServiceProvider
 {
     /**
      * The root namespace to assume when generating URLs to actions.
@@ -19,9 +19,10 @@ class $CLASS$ extends ServiceProvider
      *
      * Register any model bindings or pattern based filters.
      *
+     * @param  Router $router
      * @return void
      */
-    public function boot()
+    public function before(Router $router)
     {
         //
     }
@@ -34,7 +35,7 @@ class $CLASS$ extends ServiceProvider
     public function map(Router $router)
     {
         // if (!app()->routesAreCached()) {
-        //    require __DIR__ . '$ROUTES_PATH$';
+        //    require __DIR__ . '/Http/routes.php';
         // }
     }
 }

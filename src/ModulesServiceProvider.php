@@ -54,7 +54,14 @@ abstract class ModulesServiceProvider extends ServiceProvider
     /**
      * Register the service provider.
      */
-    abstract protected function registerServices();
+    protected function registerServices()
+    {
+        $this->app->singleton('modules', function ($app) {
+            $path = $app['config']->get('modules.paths.modules');
+
+            return new Repository($app, $path);
+        });
+    }
 
     /**
      * Get the services provided by the provider.

@@ -24,7 +24,7 @@ class EnableCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function fire()
     {
         $module = $this->laravel['modules']->findOrFail($this->argument('module'));
 
@@ -44,8 +44,8 @@ class EnableCommand extends Command
      */
     protected function getArguments()
     {
-        return [
-            ['module', InputArgument::REQUIRED, 'Module name.'],
-        ];
+        return array(
+            array('module', InputArgument::REQUIRED, 'Module name.'),
+        );
     }
 }
