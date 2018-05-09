@@ -25,6 +25,7 @@ class $CLASS$ extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->registerFactories();
+        $this->loadMigrationsFrom(__DIR__ . '/../$MIGRATIONS_PATH$');
     }
 
     /**
@@ -65,7 +66,7 @@ class $CLASS$ extends ServiceProvider
 
         $this->publishes([
             $sourcePath => $viewPath
-        ]);
+        ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/$LOWER_NAME$';
@@ -95,7 +96,7 @@ class $CLASS$ extends ServiceProvider
     public function registerFactories()
     {
         if (! app()->environment('production')) {
-            app(Factory::class)->load(__DIR__ . '/Database/factories');
+            app(Factory::class)->load(__DIR__ . '/../$FACTORIES_PATH$');
         }
     }
 

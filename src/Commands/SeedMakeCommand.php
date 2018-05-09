@@ -3,6 +3,7 @@
 namespace Jarhen\Modules\Commands;
 
 use Illuminate\Support\Str;
+use Jarhen\Modules\Support\Config\GenerateConfigReader;
 use Jarhen\Modules\Support\Stub;
 use Jarhen\Modules\Traits\CanClearModulesCache;
 use Jarhen\Modules\Traits\ModuleCommandTrait;
@@ -36,10 +37,10 @@ class SeedMakeCommand extends GeneratorCommand
      */
     protected function getArguments()
     {
-        return array(
-            array('name', InputArgument::REQUIRED, 'The name of seeder will be created.'),
-            array('module', InputArgument::OPTIONAL, 'The name of module will be used.'),
-        );
+        return [
+            ['name', InputArgument::REQUIRED, 'The name of seeder will be created.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module will be used.'],
+        ];
     }
 
     /**
@@ -49,14 +50,14 @@ class SeedMakeCommand extends GeneratorCommand
      */
     protected function getOptions()
     {
-        return array(
-            array(
+        return [
+            [
                 'master',
                 null,
                 InputOption::VALUE_NONE,
                 'Indicates the seeder will created is a master database seeder.',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -83,9 +84,9 @@ class SeedMakeCommand extends GeneratorCommand
 
         $path = $this->laravel['modules']->getModulePath($this->getModuleName());
 
-        $seederPath = $this->laravel['modules']->config('paths.generator.seeder');
+        $seederPath = GenerateConfigReader::read('seeder');
 
-        return $path . $seederPath . '/' . $this->getSeederName() . '.php';
+        return $path . $seederPath->getPath() . '/' . $this->getSeederName() . '.php';
     }
 
     /**

@@ -83,7 +83,6 @@ class NameParser
     public function getTableName()
     {
         $matches = array_reverse($this->getMatches());
-
         return array_shift($matches);
     }
 
