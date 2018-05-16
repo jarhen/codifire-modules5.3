@@ -62,8 +62,8 @@ class SubcontrollerMakeCommand extends GeneratorCommand
             'CLASS_NAMESPACE'   => $module->getStudlyName(),
             'CLASS'             => $this->getControllerName(),
             'LOWER_NAME'        => strtolower($this->getsubmoduleName()),
-			'SINGULAR_NAME'     => ucfirst(rtrim($this->getsubmoduleName(),'s')),
-			'LOWERCASE_NAME'     => rtrim($this->getsubmoduleName(),'s'),
+			'SINGULAR_NAME'     => ucfirst(str_singular($this->getsubmoduleName())),
+			'LOWERCASE_NAME'     => str_singular($this->getsubmoduleName()),
             'MODULE'            => $this->getModuleName(),
             'NAME'              => $this->getModuleName(),
             'STUDLY_NAME'       => $module->getStudlyName(),
@@ -83,10 +83,11 @@ class SubcontrollerMakeCommand extends GeneratorCommand
      */
 	protected function setvalidations()
 	{
-		$options 	=  $this->option('setvalidations');
+	$validation =  $this->option('setvalidations');
+		$options	= $this->option('setfields');
 		$string ="";
-		foreach ($options as $key) {
-			$string .= "'".$key."' => 'Required',\n\t\t\t";
+		foreach ($options as $index => $key ) {
+			$string .= "'".$key."' => '".$validation[$index]."',\n\t\t\t";
 			
 		}
 		return $string;
@@ -156,7 +157,7 @@ class SubcontrollerMakeCommand extends GeneratorCommand
      */
     protected function getControllerName()
     {
-        $controller = studly_case($this->argument('controller').'s');
+        $controller = studly_case(str_plural($this->argument('controller')));
         
         if (str_contains(strtolower($controller), 'controller') === false) {
             $controller .= 'Controller';
@@ -166,7 +167,7 @@ class SubcontrollerMakeCommand extends GeneratorCommand
     }
 	  protected function getsubmoduleName()
     {
-        $name = strtolower(studly_case($this->argument('controller').'s'));
+        $name = strtolower(studly_case(str_plural($this->argument('controller'))));
         return $name;
     }
 

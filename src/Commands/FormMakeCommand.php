@@ -24,7 +24,7 @@ class FormMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'module:make-forms';
+    protected $name = 'module:make-form';
 
     /**
      * The console command description.
